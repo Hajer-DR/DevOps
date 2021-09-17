@@ -12,8 +12,7 @@ pipeline {
     checkout scm
    }
   }
-   stage('Build') {
-  
+ 
     stage('Compile') {
      agent {
       docker {
@@ -29,7 +28,7 @@ pipeline {
      }
     }
 	
-	}
+	
     
  
 
