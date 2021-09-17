@@ -48,9 +48,7 @@ pipeline {
     sh 'mvn verify -Dsurefire.skip=true'
    }
    post {
-    always {
-    // junit allowEmptyResults: true, testResults: 'target/failsafe-reports/**/*.xml'  
-    }
+
     success {
      stash(name: 'artifact', includes: 'target/*.jar')
      stash(name: 'pom', includes: 'pom.xml')
