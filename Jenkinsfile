@@ -2,7 +2,9 @@
 
 pipeline {
  agent any
-	
+	environment {
+	AWS_BIN = '/home/ec2-user/aws'
+	}
  
  options {
   skipDefaultCheckout()
