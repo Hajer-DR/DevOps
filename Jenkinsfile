@@ -58,27 +58,8 @@ pipeline {
      //sh 'aws configure set region us-east-2'
      //sh 'aws s3 cp ./target/*.jar s3://devops-project2.0/artifact.jar'
     }
-   }
-  
+   } 
+}
  
-} 
- 
-//stage ('deployToS3')
-//{
-	 steps { 
-	    //withCredentials([<object of type com.cloudbees.jenkins.plugins.awscredentials.AmazonWebServicesCredentialsBinding>]) {
-  		//sh "aws s3 ls"
-		//sh "aws s3 mb s3://devops-project2.0"
-		//sh "aws s3 cp target/*.jar s3://devops-project2.0"
-	     // sh 'aws --version'		
-	} 
-		 
-		 
-
-
-	 
-	 }
- 
-
 }
   }
