@@ -69,12 +69,11 @@ stage ('deployToS3')
   		sh "aws s3 ls"
 		sh "aws s3 mb s3://devops-project2.0"
 		sh "aws s3 cp target/*.jar s3://devops-project2.0"
-	}
-		catch (err)
+	}		
+	} catch (err)
 		{
 			sh "Echo error in sending artifiacts to S3"
 		}
-	}
 }
 	 
 
