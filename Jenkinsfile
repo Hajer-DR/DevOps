@@ -35,9 +35,7 @@ pipeline {
   }
 	
 	
-   stage('Integration Tests') {
-
-   
+   stage('Integration Tests') {  
    agent {
     docker {
      image 'maven:3.6.0-jdk-8-alpine'
@@ -63,7 +61,22 @@ pipeline {
  
 } 
  
-
+stage ('deployToS3')
+{
+	try
+	{
+	    withCredentials([<object of type com.cloudbees.jenkins.plugins.awscredentials.AmazonWebServicesCredentialsBinding>]) {
+  		sh "aws s3 ls"
+		sh "aws s3 mb s3://devops-project2.0"
+		sh "aws s3 cp target/*.jar s3://devops-project2.0"
+	}
+		catch (err)
+		{
+			sh "Echo error in sending artifiacts to S3"
+		}
+	}
+}
+	 
 
  
  }
