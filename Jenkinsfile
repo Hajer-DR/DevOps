@@ -16,7 +16,7 @@ pipeline {
    }
   }
  
-    stage('Unit Tests') {
+    /*stage('Unit Tests') {
 
 
    agent {
@@ -34,7 +34,7 @@ pipeline {
  //    junit 'target/failsafe-reports-/*.xml'
  //   }
  //  }
-  }
+  }*/
 	
 	
    stage('Integration Tests') {  
