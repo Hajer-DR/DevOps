@@ -55,8 +55,8 @@ pipeline {
      stash(name: 'pom', includes: 'pom.xml')
      // to add artifacts in jenkins pipeline tab (UI)
      archiveArtifacts 'target/*.jar'
-     sh 'aws configure set region us-east-2'
-     sh 'aws s3 cp ./target/*.jar s3://devops-project2.0/artifact.jar'
+     //sh 'aws configure set region us-east-2'
+     //sh 'aws s3 cp ./target/*.jar s3://devops-project2.0/artifact.jar'
     }
    }
   
