@@ -4,6 +4,7 @@ pipeline {
  agent any
 	environment { 
                 AN_ACCESS_KEY = credentials('aws-jenkins-credentials') 
+		registry ="katsudoka/ecommerce"
             }
  
  options {
@@ -79,8 +80,23 @@ pipeline {
 	 sh "aws s3 mb s3://devops-project2"
    	 sh "aws s3 cp target/*.jar s3://devops-project2"     		 
 	 }		 
-	 }
- 
+ }	
 	 
+  stage ('Publish image to Dockerhub')
+  {
+	  environment {
+	   registryCredential ='Dockerhub_credetials'
+	  }	 
+	  steps{
+		  script {
+		   def appimage= docker.build registry +"$BUILD_NUMBER"
+			  docker.withRegistry(",registryCredential){
+			    appimage.push()
+			    appimage.push('latest')
+			   }
+		  }
+	  }
+  }
+					      
 }
   }
