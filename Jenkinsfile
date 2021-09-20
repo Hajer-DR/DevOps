@@ -72,15 +72,15 @@ pipeline {
    
    }*/
 	 
-	 stage ('DeployTo')
-	 {
-		 steps{
-		 sh 'aws --version'
-		 sh "aws s3 mb s3://devops-project2"
-   		 sh "aws s3 cp target/*.jar s3://devops-project2"
-       		 
-		 }
-		 
+   stage ('DeployTo'){
+		
+	steps{
+	 sh 'aws --version'
+	 sh "aws s3 mb s3://devops-project2"
+   	 sh "aws s3 cp target/*.jar s3://devops-project2"     		 
+	 }		 
 	 }
+ 
+	 
 }
   }
