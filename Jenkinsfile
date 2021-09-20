@@ -2,9 +2,9 @@
 
 pipeline {
  agent any
-	environment {
-	AWS_BIN = '/home/ec2-user/aws'
-	}
+	environment { 
+                AN_ACCESS_KEY = credentials('aws-jenkins-credentials') 
+            }
  
  options {
   skipDefaultCheckout()
@@ -60,7 +60,7 @@ pipeline {
     }
    } 
 }*/
-	 stage ('deployToS3')
+	/* stage ('deployToS3')
 {
    steps { 
       withCredentials([<object of type com.cloudbees.jenkins.plugins.awscredentials.AmazonWebServicesCredentialsBinding>]) {
@@ -70,6 +70,17 @@ pipeline {
         sh 'aws --version'    
   } 
    
-   }
+   }*/
+	 
+	 stage ('DeployTo')
+	 {
+		 steps{
+		 sh 'aws --version'
+		 sh "aws s3 mb s3://devops-project2.0"
+   		 sh "aws s3 cp target/*.jar s3://devops-project2.0"
+       		 
+		 }
+		 
+	 }
 }
   }
