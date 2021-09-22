@@ -17,7 +17,7 @@ pipeline {
    }
   }
  
-    /*stage('Unit Tests') {
+    stage('Unit Tests') {
 
 
    agent {
@@ -35,7 +35,7 @@ pipeline {
  //    junit 'target/failsafe-reports-/*.xml'
  //   }
  //  }
-  }*/
+  }
 	
 	
   /* stage('Integration Tests') {  
@@ -73,16 +73,16 @@ pipeline {
    
    }*/
 	 
-   stage ('DeployTo'){
+  /* stage ('DeployTo'){
 		
 	steps{
 	 sh 'aws --version'
 	 sh "aws s3 mb s3://devops-project2"
    	 sh "aws s3 cp target/*.jar s3://devops-project2"     		 
 	 }		 
- }	
+ }*/	
 	 
-stage('Publish docker image to dockerhub with our app updated') {
+/*stage('Publish docker image to dockerhub with our app updated') {
             environment {
                 registryCredential = 'Dockerhub_credetials'
             }
@@ -96,7 +96,7 @@ stage('Publish docker image to dockerhub with our app updated') {
                     }
                 }
             }
-        }
+        }*/
 
 					      
 }
