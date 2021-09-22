@@ -17,7 +17,7 @@ pipeline {
    }
   }
  
-    stage('Unit Tests') {
+  /*  stage('Unit Tests') {
 
 
    agent {
@@ -35,10 +35,10 @@ pipeline {
  //    junit 'target/failsafe-reports-/*.xml'
  //   }
  //  }
-  }
+  }*/
 	
 	
-  /* stage('Integration Tests') {  
+   stage('Integration Tests') {  
    agent {
     docker {
      image 'maven:3.6.0-jdk-8-alpine'
@@ -60,7 +60,7 @@ pipeline {
      //sh 'aws s3 cp ./target/*.jar s3://devops-project2.0/artifact.jar'
     }
    } 
-}*/
+}
 	/* stage ('deployToS3')
 {
    steps { 
