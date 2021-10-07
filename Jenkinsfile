@@ -2,10 +2,6 @@
 
 pipeline {
  agent any
-	environment { 
-                AN_ACCESS_KEY = credentials('aws-jenkins-credentials') 
-		registry ="katsudoka/ecommerce"
-            }
  
  options {
   skipDefaultCheckout()
