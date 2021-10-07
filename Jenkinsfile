@@ -4,7 +4,7 @@ pipeline {
  agent any
 	environment { 
                 AN_ACCESS_KEY = credentials('aws-jenkins-credentials') 
-		//registry ="katsudoka/ecommerce"
+		registry ="katsudoka/ecommerce"
             }
  
  options {
@@ -17,7 +17,7 @@ pipeline {
    }
   }
  
-  /*  stage('Unit Tests') {
+    stage('Unit Tests') {
 
 
    agent {
@@ -30,15 +30,14 @@ pipeline {
    steps {
     sh 'mvn test'
    }
- //  post {
- //   always {
- //    junit 'target/failsafe-reports-/*.xml'
- //   }
- //  }
-  }*/
+   post {
+    always {
+     junit 'target/failsafe-reports-/*.xml'
+   }
+  }
+  }
 	
-	
-  /* stage('Integration Tests') {  
+ stage('Integration Tests') {  
    agent {
     docker {
      image 'maven:3.6.0-jdk-8-alpine'
@@ -60,7 +59,7 @@ pipeline {
      //sh 'aws s3 cp ./target/*.jar s3://devops-project2.0/artifact.jar'
     }
    } 
-}*/
+}
 	/* stage ('deployToS3')
 {
    steps { 
